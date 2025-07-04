@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color:antiquewhite;
+                font-family:'Times New Roman', Times, serif;
+                
+            }
+.store{
+    display:grid;
+    grid-template-columns:repeat(4,1fr) ;
+    gap:10px;  
+    
+}
+
+
+
+@media(min-width:1024px){
+    .store{
+        grid-template-columns:repeat(4,1fr) ;
+    }
+}
+@media(min-width:768px){
+    .store{
+        grid-template-columns:repeat(2,1fr)
+    }
+}
+@media(max-width:768px){
+    .store{
+        grid-template-columns:repeat(1,1fr)
+    }
+}
+
+
+        </style>
+    </head>
+    <body>
+        <h1>My website</h1>
+        <div class="store">
+            
+            <div class="product1">
+                <img src="watch.jpeg" alt="watch">
+                <div>watch</div>
+                <div>$22.0 </div>
+            </div>
+            <div class="product2">
+                <img src="dress.jpeg" alt="dress">
+                <div>Dress</div>
+                <div>$25.78 </div>
+            </div>
+            <div class="product3">
+                <img src="earring.jpeg" alt="earrings">
+                <div>Earrings</div>
+                <div>$15 </div>
+            </div>
+            <div class="product4">
+                <img src="shoe.jpeg" alt="shoe">
+                <div>Shoe/div>
+                <div>$40.36 </div>
+            
+</div>
+        </div>
+        </body>
+</html>
+

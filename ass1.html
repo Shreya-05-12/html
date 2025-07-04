@@ -1,35 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Personal Bio</title>
+  <style>
+    
+    p {
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 1em; 
+      color:#fff3cd
+      background-color:aqua;
+      padding: 10px;
+      margin: 10px 0;
+
+    }
+
+    
+    #name {
+      font-size: 28px; 
+      color: white;
+      background-color:yellowgreen;
+      text-align: center;
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    
+    .hobby {
+      background-color: #fff3cd;
+      color: #856404;
+      font-weight: bold;
+    }
+
+    
+    .skills {
+      background-color: #d1ecf1;
+      color: #0c5460;
+      font-style: italic;
+      font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+  </style>
 </head>
 <body>
-    <script>
-        let a=Number(prompt("enter frst num:"));
-        let b=Number(prompt("enter second num:"));
-        let operator=prompt("enter the operator:");
-        
-        switch(operator){
-            case '+':
-               
-                alert(a+b);
-                break;
-                case '-':
-                    alert(a-b);
-                    break;
-            case '/':
-                alert(a/b);
-                break;
-                case '*':
-                    alert(a*b);
-                    break;
-                    default:
-                        console.log('enter the valid operator')
 
-        }
+  <h1 id="name">Kusuma Shreya</h1>
 
-    </script>
+  <p>Welcome</p>
+
+  <p class="hobby">Hobby: Photography</p>
+  <p class="hobby">Hobby: Sleeping</p>
+
+  <p class="skills">Skill: Web Development</p>
+  <p class="skills">Skill: Graphic Design</p>
+
 </body>
 </html>

@@ -1,27 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Restaurant Menu</title>
+  <style>
+    
+    h1, h2 {
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      background-color: #222;
+      text-align: center;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    
+    .menu-section {
+      padding: 2%;
+      margin: 2% auto;
+      border-radius: 10px;
+      width: 80%;
+    }
+
+   
+    #veg-section {
+      background-color: #e8f5e9;
+    }
+
+    .veg {
+      color: green;
+      font-weight: bold;
+      padding: 0.5rem;
+      background-color: #ffffff;
+      margin: 0.5rem 0;
+      border-left: 5px solid green;
+    }
+
+    
+    #nonveg-section {
+      background-color: #ffebee;
+    }
+
+    .nonveg {
+      color: maroon;
+      font-style: italic;
+      padding: 0.5rem;
+      background-color: #ffffff;
+      margin: 0.5rem 0;
+      border-left: 5px solid maroon;
+    }
+    .icecream {
+      color: maroon;
+      font-style: italic;
+      padding: 0.5rem;
+      background-color:whitesmoke;
+      margin: 0.5rem 0;
+      border-left: 5px solid green;
+    }
+    .sweets {
+      color: maroon;
+      font-style: italic;
+      padding: 0.5rem;
+      background-color:whitesmoke;
+      margin: 0.5rem 0;
+      border-left: 5px solid maroon;
+    }
+  </style>
 </head>
 <body>
-    <script>
-        let marks=Number(prompt("enter your marks:"));
-        if(marks>=90&&marks<=100){
-            alert('A');
-            
 
-        }
-        else if(marks>=75&&marks<=89){
-            alert('B');
-        }
-        else if(marks>=60&&marks<=74){
-            alert('C');
-        }
-        else{
-            alert('Fail');
-        }
-    </script>
+  <h1>My Restaurant Menu</h1>
+
+  
+  <div id="veg-section" class="menu-section">
+    <h2>Vegetarian Menu</h2>
+    <p class="veg">Paneer Tikka</p>
+    <p class="veg">Veg Biryani</p>
+    <p class="veg">Paneer Butter Masala</p>
+    <p class="veg">Lady's finger fry</p>
+  </div>
+
+  
+  <div id="nonveg-section" class="menu-section">
+    <h2>Non-Vegetarian Menu</h2>
+    <p class="nonveg">Chicken 65</p>
+    <p class="nonveg">Chicken Biryani</p>
+    <p class="nonveg">Chicken lolli pop</p>
+    <p class="nonveg">chilly chicken</p>
+  </div>
+  <div id="Ice-cream-section" class="menu-section">
+    <h2>Ice-cream Menu</h2>
+    <p class="icecream ">Chocolate</p>
+    <p class="icecream ">Butterscotch</p>
+    <p class="icecream "> Malai Kulfi</p>
+    <p class="icecream ">Matka kulfi</p>
+  </div>
+  <div id="Sweets-section" class="menu-section">
+    <h2>Sweets Menu</h2>
+    <p class="sweets  ">Gulab Jamun</p>
+    <p class="sweets  ">Kala Jamun</p>
+    <p class="sweets  "> Rasmalai</p>
+    <p class="sweets  ">Junnu</p>
+  </div>
+
 </body>
 </html>
