@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product List Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #dcb1b1;
+    }
+    h2 {
+      text-align: center;
+      color: #1a1818;
+    }
+    #product-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 4px;
+      border: 1px solid #0d0c0c;
+    }
+    button {
+      background-color: #32ae4f;
+      color: white;
+      border: none;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 12px;
+      text-align: center;
+    }
+    .edit-btn, .delete-btn {
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .edit-btn {
+      background-color: #615f58;
+      border: none;
+    }
+    .delete-btn {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+    }
+     @media screen and (max-width: 768px) {
+      h2 {
+        font-size: 20px;
+      }
+      input, button {
+        flex: 1 1 100%;
+        font-size: 14px;
+      }
+      th, td {
+        font-size: 12px;
+        padding: 8px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      h2 {
+        font-size: 18px;
+      }
+      input, button {
+        padding: 8px;
+        font-size: 12px;
+      }
+      th, td {
+        font-size: 10px;
+        padding: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Product List Manager (CRUD)</h2>
+
+  <form id="product-form">
+    <input type="text" id="product-name" placeholder="Product Name" required />
+    <input type="number" id="product-price" placeholder="Price" required />
+    <button type="submit">Add Product</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Product</th>
+        <th>Price ($)</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="product-list"></tbody>
+  </table>
+
+  <script>
+    const form = document.getElementById("product-form");
+    const nameInput = document.getElementById("product-name");
+    const priceInput = document.getElementById("product-price");
+    const productList = document.getElementById("product-list");
+nameInput.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    e.preventDefault(); 
+    priceInput.focus(); 
+  }
+});
+    let products = [
+      { name: "Laptop", price: 650 },
+      { name: "Smartphone", price: 320 },
+    ];
+    let editingIndex = -1;
+
+    function renderProducts() {
+      productList.innerHTML = "";
+      products.forEach((product, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${index + 1}</td>
+          <td>${product.name}</td>
+          <td>${product.price.toFixed(2)}</td>
+          <td>
+            <button class="edit-btn" data-index="${index}">Edit</button>
+            <button class="delete-btn" data-index="${index}">Delete</button>
+          </td>
+        `;
+        productList.appendChild(row);
+      });
+
+      document.querySelectorAll(".edit-btn").forEach(btn =>
+        btn.addEventListener("click", () => {
+          const index = btn.getAttribute("data-index");
+          editProduct(index);
+        })
+      );
+
+      document.querySelectorAll(".delete-btn").forEach(btn =>
+        btn.addEventListener("click", () => {
+          const index = btn.getAttribute("data-index");
+          deleteProduct(index);
+        })
+      );
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = nameInput.value.trim();
+      const price = parseFloat(priceInput.value);
+
+      if (name && price) {
+        if (editingIndex === -1) {
+          products.push({ name, price });
+        } else {
+          products[editingIndex] = { name, price };
+          editingIndex = -1;
+        }
+        nameInput.value = "";
+        priceInput.value = "";
+        renderProducts();
+      }
+    });
+
+    function editProduct(index) {
+      const product = products[index];
+      nameInput.value = product.name;
+      priceInput.value = product.price;
+      editingIndex = index;
+    }
+
+    function deleteProduct(index) {
+      if (confirm("Are you really want to delete the product?")) {
+        products.splice(index, 1);
+        renderProducts();
+      }
+    }
+
+    renderProducts();
+  </script>
+
+</body>
+</html>
